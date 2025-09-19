@@ -46,6 +46,7 @@ st.dataframe(df.head(15))
 
 cols = df.columns.tolist()
 
+
 # Метрики
 logistics = get_a_value_of_column(df, "Услуги по доставке товара покупателю")
 pribil = get_a_value_of_column(df, "Вайлдберриз реализовал Товар (Пр)")
@@ -68,6 +69,7 @@ if not agree:
         ]
 else:
     df_filtered = df.copy()
+
 
 # Графики
 with st.expander("📈 Выручка по датам"):
