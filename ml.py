@@ -32,7 +32,12 @@ if not agree:
     last_time = st.date_input("По ")
 
 # Загрузка данных
-df = pd.read_excel("0.xlsx")
+uploaded_file = st.file_uploader("Загрузите файл Excel", type=['xlsx', 'xls'])
+if uploaded_file is not None:
+    df = pd.read_excel(uploaded_file)
+else:
+    st.warning("Пожалуйста, загрузите файл Excel для просмотра отчёта.")
+    st.stop()
 if not pd.api.types.is_datetime64_any_dtype(df["Дата продажи"]):
     df["Дата продажи"] = pd.to_datetime(df["Дата продажи"])
 
